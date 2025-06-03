@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/main.js",
+    "dev": "nodemon --watch src src/main.ts",
+    "build": "tsc",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
