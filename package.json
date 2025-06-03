@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/main.js",
-    "dev": "nodemon --watch src src/main.ts",
+    "start": "node ./build/main.js",
     "build": "tsc",
-    "test": "jest"
+    "dev": "nodemon ./src/main.ts --watch ./src",
+    "typecheck": "tsc --noEmit",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:deploy": "npx prisma migrate deploy && npx prisma generate",
+    "test:local": "dotenv -e .env.test -- prisma migrate dev && dotenv -e .env.test -- jest -i --coverage",
+    "test:ci": "jest"
   },
   "author": "",
   "license": "ISC",
